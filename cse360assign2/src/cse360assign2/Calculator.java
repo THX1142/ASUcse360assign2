@@ -1,6 +1,8 @@
 
 package cse360assign2;
 
+import java.util.ArrayList;
+
 /**
  * A basic calculator program that adds (+), subtracts (-),
  * multiplies (*), and divides (/).
@@ -11,12 +13,15 @@ package cse360assign2;
 public class Calculator {
 
 	private int total;
+	private ArrayList<String> history;
 	
 	/**
 	 * Constructor which initializes the calculator object.
 	 */
 	public Calculator () {
+		history = new ArrayList<String>();
 		total = 0;  // not needed - included for clarity
+		history.add(String.valueOf(total));
 	}
 	
 	/**
@@ -35,6 +40,9 @@ public class Calculator {
 	 */
 	public void add (int value) {
 		total += value;
+		
+		history.add("+");
+		history.add(String.valueOf(value));
 	}
 	
 	/**
@@ -44,6 +52,9 @@ public class Calculator {
 	 */
 	public void subtract (int value) {
 		total -= value;
+		
+		history.add("-");
+		history.add(String.valueOf(value));
 	}
 	
 	/**
@@ -53,6 +64,9 @@ public class Calculator {
 	 */
 	public void multiply (int value) {
 		total *= value;
+		
+		history.add("*");
+		history.add(String.valueOf(value));
 	}
 	
 	/**
@@ -65,6 +79,9 @@ public class Calculator {
 			total = 0;
 		else
 			total /= value;
+		
+		history.add("/");
+		history.add(String.valueOf(value));
 	}
 	
 	/**
@@ -73,6 +90,15 @@ public class Calculator {
 	 * @return A list of the history.
 	 */
 	public String getHistory () {
-		return "";
+		String getHistory;
+		
+		getHistory = history.get(0);
+		
+		for (int index = 1; index < history.size(); ++index)
+		{
+			getHistory += " " + history.get(index);
+		}
+		
+		return getHistory;
 	}
 }
