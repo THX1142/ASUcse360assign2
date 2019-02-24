@@ -17,6 +17,8 @@ public class Calculator {
 	
 	/**
 	 * Constructor which initializes the calculator object.
+	 * Total is set to zero and the history storage is
+	 * instantiated and adds total to it.
 	 */
 	public Calculator () {
 		history = new ArrayList<String>();
@@ -34,7 +36,7 @@ public class Calculator {
 	}
 	
 	/**
-	 * Add the value to the total.
+	 * Add the value to the total and history is updated.
 	 * 
 	 * @param value The integer to be added to total.
 	 */
@@ -46,7 +48,7 @@ public class Calculator {
 	}
 	
 	/**
-	 * Subtract the value from the total.
+	 * Subtract the value from the total and history is updated.
 	 * 
 	 * @param value The integer to be subtracted from the total.
 	 */
@@ -59,6 +61,7 @@ public class Calculator {
 	
 	/**
 	 * Multiply the value to total, or add total to it's self value times.
+	 * History is updated.
 	 * 
 	 * @param value The number of time you are multiplying total
 	 */
@@ -70,7 +73,7 @@ public class Calculator {
 	}
 	
 	/**
-	 * Divide the total by the value.
+	 * Divide the total by the value and history is updated.
 	 * 
 	 * @param value The denominator, can't be zero ( 0 ).
 	 */
